@@ -1042,6 +1042,26 @@ GET    /v1/{org_id}/compliance/violations
 GET    /v1/{org_id}/compliance/real-time-status  # Real-time compliance
 ```
 
+
+#### Super Admin Multi-Tenant Management API
+```
+POST   /v1/superadmin/tenants                        # Create new tenant
+GET    /v1/superadmin/tenants                        # List all tenants
+GET    /v1/superadmin/tenants/{tenant_id}            # Get tenant details
+PUT    /v1/superadmin/tenants/{tenant_id}            # Update tenant configuration
+DELETE /v1/superadmin/tenants/{tenant_id}            # Offboard tenant
+POST   /v1/superadmin/tenants/{tenant_id}/suspend    # Suspend tenant
+POST   /v1/superadmin/tenants/{tenant_id}/reactivate # Reactivate tenant
+GET    /v1/superadmin/tenants/{tenant_id}/usage      # Tenant usage metrics
+GET    /v1/superadmin/tenants/{tenant_id}/health     # Tenant health status
+POST   /v1/superadmin/tenants/{tenant_id}/impersonate # Support impersonation
+GET    /v1/superadmin/platform/metrics               # Global platform metrics
+GET    /v1/superadmin/platform/alerts                # Platform-wide alerts
+POST   /v1/superadmin/platform/bulk-update           # Bulk config update
+GET    /v1/superadmin/support/tickets                # Support ticket management
+POST   /v1/superadmin/support/tickets/{ticket_id}/escalate # Escalate support ticket
+```
+
 ### Webhook System
 
 #### Event Types
@@ -1066,6 +1086,24 @@ GET    /v1/{org_id}/compliance/real-time-status  # Real-time compliance
   }
 }
 ```
+
+
+## Privacy by Design and by Default
+
+The Open PDPA Platform is engineered with privacy as a foundational principle, following both 'Privacy by Design' and 'Privacy by Default' approaches:
+
+- **Data Minimization**: Only the minimum necessary personal data is collected, processed, and retained for each use case.
+- **Purpose Limitation**: Data is processed strictly for specified, explicit, and legitimate purposes, with technical enforcement of purpose binding.
+- **Default Privacy Settings**: All user-facing features and APIs are configured with the most privacy-protective settings by default (opt-in, least privilege, no tracking unless required).
+- **User Control and Transparency**: Data subjects have clear, accessible controls for consent, preferences, and rights requests, with full audit trails.
+- **End-to-End Security**: Encryption at rest and in transit, strong authentication, and access controls are applied to all personal data.
+- **Data Protection Impact Assessments (DPIA)**: Automated and guided DPIA workflows are integrated into new feature and system changes.
+- **Access Logging and Monitoring**: All access to personal data is logged, monitored, and regularly reviewed for anomalies.
+- **Automated Data Retention and Deletion**: Data retention policies are enforced by automation, with regular deletion of expired or unnecessary data.
+- **Privacy Engineering Reviews**: All new features undergo privacy engineering review and threat modeling before release.
+- **Continuous Improvement**: Privacy controls and processes are regularly reviewed and updated in response to regulatory changes, incidents, and best practices.
+
+These principles are embedded in the platform's architecture, development lifecycle, and operational processes to ensure ongoing compliance and user trust.
 
 ## Security Architecture
 
